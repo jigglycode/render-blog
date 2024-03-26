@@ -8,9 +8,10 @@
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test node --test",
     "test:seq": "cross-env NODE_ENV=test node --test --test-concurrency=1",
-    "build:ui": "rm -rf dist && cd ../../dev && npm run build && cp -r dist ../part3/test && cd ../part3/test",
+    "build:ui": "rm -rf dist && cd ../../part5/frontend && npm run build && cp -r dist ../../part4/blog && cd ../../part4/blog",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "start:test": "NODE_ENV=test node index.js"
   },
   "author": "",
   "license": "MIT",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^1.7.0",
+    "@types/node": "^20.11.30",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "lodash": "^4.17.21",
