@@ -40,7 +40,9 @@ blogsRouter.post('/', userExtractor, async (request, response) => {
 });
 
 blogsRouter.post('/:id/comments', async (request, response) => {
-  const blog = awaitBlog.findById(request.params.id);
+  const blog = await Blog.findById(request.params.id);
+  const body = request.body;
+
   const comment = new Comment({
     title: body.title,
     blog: blog.id,
